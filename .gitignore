@@ -31,3 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Fichiers envoyés par les utilisateurs (affiches, vidéos) et configuration locale
+uploads/
+.env
