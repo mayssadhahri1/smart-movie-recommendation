@@ -57,11 +57,24 @@ Organisation du code (`com.example.gestionprojet`) :
 
 ## 🚀 Lancer le projet
 
-**Prérequis** : Java 17, Maven, MySQL, une clé API TMDB.
+**Prérequis** : Java 17, Maven, MySQL, une clé API [TMDB](https://www.themoviedb.org/settings/api).
+
+Les informations sensibles ne sont jamais écrites dans le code : elles sont lues dans des **variables d'environnement**.
+
+| Variable | Obligatoire | Description |
+|---|---|---|
+| `TMDB_API_KEY` | ✅ | Clé de l'API TMDB |
+| `JWT_SECRET` | ✅ | Clé de signature des jetons (32 caractères minimum) |
+| `DB_URL` | — | URL JDBC (par défaut `jdbc:mysql://localhost:3307/movie_platform`) |
+| `DB_USERNAME` / `DB_PASSWORD` | — | Identifiants MySQL (par défaut `root` / vide) |
 
 ```bash
-# 1. Configurer la base et la clé TMDB dans src/main/resources/application.properties
-#    spring.datasource.url=jdbc:mysql://localhost:3307/movie_platform?createDatabaseIfNotExist=true
+# 1. Définir les variables (Linux / macOS)
+export TMDB_API_KEY=votre_cle_tmdb
+export JWT_SECRET=une_cle_longue_et_aleatoire_de_32_caracteres_minimum
+
+#    Windows PowerShell
+#    $env:TMDB_API_KEY="votre_cle_tmdb"; $env:JWT_SECRET="..."
 
 # 2. Lancer l'API (port 8081)
 ./mvnw spring-boot:run
@@ -69,6 +82,14 @@ Organisation du code (`com.example.gestionprojet`) :
 # 3. Documentation Swagger
 #    http://localhost:8081/swagger-ui.html
 ```
+
+## 🧩 Les autres parties de la plateforme
+
+| Partie | Dépôt |
+|---|---|
+| 🖥️ Dashboard d'administration (Angular 17) | [smart-movie-admin](https://github.com/mayssadhahri1/smart-movie-admin) |
+| 📱 Application mobile client (Flutter) | à venir |
+| 🗺️ Vue d'ensemble de la plateforme | [smart-movie-recommendation-platform](https://github.com/mayssadhahri1/smart-movie-recommendation-platform) |
 
 ## 📚 Ce que j'ai appris
 
@@ -79,4 +100,4 @@ Organisation du code (`com.example.gestionprojet`) :
 
 ---
 
-👩‍💻 **Mayssa Dhahri** — Élève-ingénieure en Génie Logiciel · [LinkedIn](https://www.linkedin.com/in/mayssa-dhahri)
+👩‍💻 **Mayssa Dhahri** — Élève-ingénieure en Génie Logiciel · [LinkedIn](https://www.linkedin.com/in/mayssa-dhahri/)
